@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-  compile 'de.gurkenlabs:litiengine:0.4.14'
+  compile project(':litiengine')
 }
 
 sourceSets {

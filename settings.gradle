@@ -1,1 +1,3 @@
 rootProject.name = 'litiengine-gurk-nukem'
+include ":litiengine"
+project(":litiengine").projectDir = file("../litiengine")
