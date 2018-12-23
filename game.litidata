@@ -2,6 +2,13 @@
 <litidata version="1.0">
  <maps>
   <map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="8" tileheight="8" infinite="0" hexsidelength="0" nextobjectid="1" name="level1">
+   <properties>
+    <property name="AMBIENTLIGHT" value="#00ffffff"/>
+    <property name="GRAVITY" type="int" value="0"/>
+    <property name="MAP_DESCRIPTION" value=""/>
+    <property name="SHADOWCOLOR" value="#ffffff"/>
+    <property name="MAP_TITLE" value=""/>
+   </properties>
    <tileset firstgid="1" source="tileset.tsx"/>
    <layer name="background" width="50" height="50">
     <properties>
@@ -175,6 +182,9 @@
 </data>
    </layer>
    <objectgroup name="default">
+    <properties>
+     <property name="layerOrder" type="int" value="3"/>
+    </properties>
     <object id="1" name="" type="COLLISIONBOX" x="0" y="344" width="232" height="40"/>
     <object id="2" name="" type="COLLISIONBOX" x="248" y="328" width="72" height="72"/>
     <object id="3" name="" type="COLLISIONBOX" x="352" y="320" width="24" height="24"/>
@@ -190,7 +200,7 @@
     <object id="13" name="" type="COLLISIONBOX" x="184" y="259" width="24" height="5"/>
     <object id="14" name="" type="COLLISIONBOX" x="240" y="267" width="48" height="5"/>
     <object id="15" name="" type="COLLISIONBOX" x="312" y="283" width="24" height="5"/>
-    <object id="16" name="enter" type="SPAWNPOINT" x="8" y="326" width="18" height="18">
+    <object id="16" name="enter" type="SPAWNPOINT" x="8" y="304" width="18" height="18">
      <properties>
       <property name="spawnType" value=""/>
       <property name="spawnDirection" value="RIGHT"/>

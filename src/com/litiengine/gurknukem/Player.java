@@ -9,15 +9,19 @@ import de.gurkenlabs.litiengine.input.KeyboardEntityController;
 
 @EntityInfo(width = 18, height = 18)
 @MovementInfo(velocity = 50)
-@CollisionInfo(collisionBoxWidth = 6, collisionBoxHeight = 3, collision = true)
-public class Player extends Creature {
+@CollisionInfo(collisionBoxWidth = 5, collisionBoxHeight = 3, collision = true)
+public class Player extends Creature  {
 
   private static Player instance;
 
   private Player() {
-   super("gurknukem");
-   
-   this.addController(new KeyboardEntityController<>(this));
+    super("gurknukem");
+
+    // setup movement controller
+    KeyboardEntityController<Player> controller = new KeyboardEntityController<>(this);
+    controller.getUpKeys().clear();
+    controller.getDownKeys().clear();
+    this.addController(controller);
   }
 
   public static Player instance() {
@@ -31,6 +35,8 @@ public class Player extends Creature {
   @Override
   public void loaded(IEnvironment environment) {
     super.loaded(environment);
+
     System.out.println("Player instance loaded: #" + this.getMapId());
   }
+
 }

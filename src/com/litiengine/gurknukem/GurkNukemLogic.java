@@ -19,6 +19,8 @@ public final class GurkNukemLogic {
     Camera camera = new PositionLockCamera(Player.instance());
     camera.setClampToMap(true);
     Game.world().setCamera(camera);
+    
+    Game.world().setGravity(70);
 
     // add default game logic for when a level was loaded
     Game.world().addLoadedListener(e -> {
