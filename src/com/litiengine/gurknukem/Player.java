@@ -4,12 +4,11 @@ import de.gurkenlabs.litiengine.annotation.CollisionInfo;
 import de.gurkenlabs.litiengine.annotation.EntityInfo;
 import de.gurkenlabs.litiengine.annotation.MovementInfo;
 import de.gurkenlabs.litiengine.entities.Creature;
-import de.gurkenlabs.litiengine.environment.IEnvironment;
-import de.gurkenlabs.litiengine.input.KeyboardEntityController;
+import de.gurkenlabs.litiengine.input.PlatformingMovementController;
 
 @EntityInfo(width = 18, height = 18)
 @MovementInfo(velocity = 50)
-@CollisionInfo(collisionBoxWidth = 5, collisionBoxHeight = 3, collision = true)
+@CollisionInfo(collisionBoxWidth = 5, collisionBoxHeight = 18, collision = true)
 public class Player extends Creature  {
 
   private static Player instance;
@@ -18,10 +17,7 @@ public class Player extends Creature  {
     super("gurknukem");
 
     // setup movement controller
-    KeyboardEntityController<Player> controller = new KeyboardEntityController<>(this);
-    controller.getUpKeys().clear();
-    controller.getDownKeys().clear();
-    this.addController(controller);
+    this.addController(new PlatformingMovementController<>(this));
   }
 
   public static Player instance() {
@@ -31,12 +27,4 @@ public class Player extends Creature  {
 
     return instance;
   }
-
-  @Override
-  public void loaded(IEnvironment environment) {
-    super.loaded(environment);
-
-    System.out.println("Player instance loaded: #" + this.getMapId());
-  }
-
 }

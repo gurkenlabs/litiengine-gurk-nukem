@@ -3,7 +3,6 @@ package com.litiengine.gurknukem;
 import com.litiengine.gurknukem.screens.IngameScreen;
 
 import de.gurkenlabs.litiengine.Game;
-import de.gurkenlabs.litiengine.environment.CreatureMapObjectLoader;
 import de.gurkenlabs.litiengine.resources.Resources;
 
 /**
@@ -32,18 +31,15 @@ public class Program {
     Game.window().setIconImage(Resources.images().get("icon.png"));
     Game.graphics().setBaseRenderScale(4.001f);
 
-    // register custom player class so it can be directly loaded from a map
-    CreatureMapObjectLoader.registerCustomCreatureType(Player.class);
-
-    // add the screens that will help you organize the different states of your game
-    Game.screens().add(new IngameScreen());
-
     // load data from the utiLITI game file
     Resources.load("game.litidata");
     
     PlayerInput.init();
     GurkNukemLogic.init();
     
+    // add the screens that will help you organize the different states of your game
+    Game.screens().add(new IngameScreen());
+
     // load the first level (resources for the map were implicitly loaded from the game file)
     Game.world().loadEnvironment("level1");
 

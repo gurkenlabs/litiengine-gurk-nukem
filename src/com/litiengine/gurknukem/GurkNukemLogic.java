@@ -14,12 +14,13 @@ public final class GurkNukemLogic {
    * Initializes the game logic for the GURK NUKEM game.
    */
   public static void init() {
-
+    
     // we'll use a camera in our game that is locked to the location of the player
     Camera camera = new PositionLockCamera(Player.instance());
     camera.setClampToMap(true);
     Game.world().setCamera(camera);
     
+    // set a basic gravity for all levels.
     Game.world().setGravity(70);
 
     // add default game logic for when a level was loaded
