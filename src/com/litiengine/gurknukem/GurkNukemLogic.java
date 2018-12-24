@@ -21,7 +21,7 @@ public final class GurkNukemLogic {
     Game.world().setCamera(camera);
     
     // set a basic gravity for all levels.
-    Game.world().setGravity(70);
+    Game.world().setGravity(100);
 
     // add default game logic for when a level was loaded
     Game.world().addLoadedListener(e -> {

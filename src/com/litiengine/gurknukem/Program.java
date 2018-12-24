@@ -26,17 +26,17 @@ public class Program {
 
     // init the game infrastructure
     Game.init(args);
-   
+
     // set the icon for the game (this has to be done after initialization because the ScreenManager will not be present otherwise)
     Game.window().setIconImage(Resources.images().get("icon.png"));
     Game.graphics().setBaseRenderScale(4.001f);
 
     // load data from the utiLITI game file
     Resources.load("game.litidata");
-    
+
     PlayerInput.init();
     GurkNukemLogic.init();
-    
+
     // add the screens that will help you organize the different states of your game
     Game.screens().add(new IngameScreen());
 
