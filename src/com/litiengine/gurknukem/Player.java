@@ -14,7 +14,7 @@ import de.gurkenlabs.litiengine.input.PlatformingMovementController;
 import de.gurkenlabs.litiengine.physics.CollisionType;
 
 @EntityInfo(width = 18, height = 18)
-@MovementInfo(velocity = 50)
+@MovementInfo(velocity = 70)
 @CollisionInfo(collisionBoxWidth = 8, collisionBoxHeight = 16, collision = true)
 public class Player extends Creature implements IUpdateable {
   public static final int MAX_ADDITIONAL_JUMPS = 1;
@@ -64,8 +64,15 @@ public class Player extends Creature implements IUpdateable {
   }
 
   private boolean isTouchingGround() {
-    // the idea of this ground check is to extend the current collision box by one pixel and see if it collides with any static collision box
+    // the idea of this ground check is to extend the current collision box by one pixel and see if
+    // a) it collides with any static collision box 
     Rectangle2D groundCheck = new Rectangle2D.Double(this.getCollisionBox().getX(), this.getCollisionBox().getY(), this.getCollisionBoxWidth(), this.getCollisionBoxHeight() + 1);
+    
+    // b) it collides with the map's boundaries
+    if (groundCheck.getMaxY() > Game.physics().getBounds().getMaxY()) {
+      return true;
+    }
+
     return Game.physics().collides(groundCheck, CollisionType.STATIC);
   }
 }
