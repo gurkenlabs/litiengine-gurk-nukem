@@ -7,6 +7,7 @@ import com.litiengine.gurknukem.abilities.Jump;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.IUpdateable;
 import de.gurkenlabs.litiengine.annotation.CollisionInfo;
+import de.gurkenlabs.litiengine.annotation.Action;
 import de.gurkenlabs.litiengine.annotation.EntityInfo;
 import de.gurkenlabs.litiengine.annotation.MovementInfo;
 import de.gurkenlabs.litiengine.entities.Creature;
@@ -52,8 +53,14 @@ public class Player extends Creature implements IUpdateable {
   }
 
   /**
-   * Executes the jump ability.
+   * Checks whether this instance can currently jump and then performs the <code>Jump</code> ability.
+   * <p>
+   * <i>Note that the name of this methods needs to be equal to {@link PlatformingMovementController#JUMP}} in order for the controller to be able to
+   * use this method. <br>
+   * Another option is to explicitly specify the <code>Action.name()</code> attribute on the annotation.</i>
+   * </p>
    */
+  @Action(description = "This performs the jump ability for the player's entity.")
   public void jump() {
     if (this.consecutiveJumps >= MAX_ADDITIONAL_JUMPS || !this.jump.canCast()) {
       return;
@@ -64,10 +71,11 @@ public class Player extends Creature implements IUpdateable {
   }
 
   private boolean isTouchingGround() {
-    // the idea of this ground check is to extend the current collision box by one pixel and see if
-    // a) it collides with any static collision box 
+    // the idea of this ground check is to extend the current collision box by
+    // one pixel and see if
+    // a) it collides with any static collision box
     Rectangle2D groundCheck = new Rectangle2D.Double(this.getCollisionBox().getX(), this.getCollisionBox().getY(), this.getCollisionBoxWidth(), this.getCollisionBoxHeight() + 1);
-    
+
     // b) it collides with the map's boundaries
     if (groundCheck.getMaxY() > Game.physics().getBounds().getMaxY()) {
       return true;

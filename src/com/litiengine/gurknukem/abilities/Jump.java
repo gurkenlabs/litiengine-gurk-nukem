@@ -41,15 +41,15 @@ public class Jump extends Ability {
 
     @Override
     protected boolean hasEnded(final EffectApplication appliance) {
-      return super.hasEnded(appliance) || this.isTouchingRoof();
+      return super.hasEnded(appliance) || this.isTouchingCeiling();
     }
 
     /**
-     * Make sure that the jump is cancelled when the entity touches the roof.
+     * Make sure that the jump is cancelled when the entity touches a static collision box above it.
      * 
-     * @return True if the entity touches the roof.
+     * @return True if the entity touches a static collision box above it.
      */
-    private boolean isTouchingRoof() {
+    private boolean isTouchingCeiling() {
 
       Optional<CollisionBox> opt = Game.world().environment().getCollisionBoxes().stream().filter(x -> x.getBoundingBox().intersects(this.getAbility().getExecutor().getBoundingBox())).findFirst();
       if (!opt.isPresent()) {
