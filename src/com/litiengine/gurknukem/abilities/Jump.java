@@ -12,7 +12,6 @@ import de.gurkenlabs.litiengine.abilities.effects.ForceEffect;
 import de.gurkenlabs.litiengine.annotation.AbilityInfo;
 import de.gurkenlabs.litiengine.entities.CollisionBox;
 import de.gurkenlabs.litiengine.entities.Creature;
-import de.gurkenlabs.litiengine.entities.ICombatEntity;
 import de.gurkenlabs.litiengine.entities.IMobileEntity;
 import de.gurkenlabs.litiengine.physics.Force;
 import de.gurkenlabs.litiengine.physics.GravityForce;
@@ -33,10 +32,10 @@ public class Jump extends Ability {
     }
 
     @Override
-    protected Force applyForce(ICombatEntity affectedEntity) {
+    protected Force applyForce(IMobileEntity affectedEntity) {
       // create a new force and apply it to the player
       GravityForce force = new GravityForce(affectedEntity, this.getStrength(), Direction.UP);
-      ((IMobileEntity)affectedEntity).getMovementController().apply(force);
+      affectedEntity.getMovementController().apply(force);
       return force;
     }
 
