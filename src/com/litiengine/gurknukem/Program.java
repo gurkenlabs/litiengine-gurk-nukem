@@ -20,7 +20,7 @@ public class Program {
     // set meta information about the game
     Game.info().setName("GURK NUKEM");
     Game.info().setSubTitle("");
-    Game.info().setVersion("v0.0.1");
+    Game.info().setVersion("v0.0.2");
     Game.info().setWebsite("https://github.com/gurkenlabs/litiengine-gurk-nukem");
     Game.info().setDescription("An example 2D platformer with shooter elements made in the LITIengine");
 
