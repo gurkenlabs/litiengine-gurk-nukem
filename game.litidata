@@ -241,6 +241,18 @@
       <property name="spawnDirection" value="RIGHT"/>
      </properties>
     </object>
+    <object id="19" type="CREATURE" x="112" y="326" width="16" height="18">
+     <properties>
+      <property name="addShadow" type="bool" value="true"/>
+      <property name="collision" type="bool" value="true"/>
+      <property name="collisionboxHeightFactor" value="16.0"/>
+      <property name="collisionboxWidthFactor" type="float" value="6.4"/>
+      <property name="indestructible" type="bool" value="false"/>
+      <property name="spawnDirection" value="LEFT"/>
+      <property name="spritesheetName" value="Jorge"/>
+      <property name="velocity" value="10"/>
+     </properties>
+    </object>
    </objectgroup>
    <objectgroup id="5" name="Collision">
     <properties>

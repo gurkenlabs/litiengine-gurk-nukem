@@ -1,7 +1,10 @@
 package com.litiengine.gurknukem;
 
+import com.litiengine.gurknukem.entities.Jorge;
+
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.Spawnpoint;
+import de.gurkenlabs.litiengine.environment.CreatureMapObjectLoader;
 import de.gurkenlabs.litiengine.graphics.Camera;
 import de.gurkenlabs.litiengine.graphics.PositionLockCamera;
 
@@ -32,5 +35,7 @@ public final class GurkNukemLogic {
         enter.spawn(Player.instance());
       }
     });
+    
+    CreatureMapObjectLoader.registerCustomCreatureType(Jorge.class);
   }
 }
