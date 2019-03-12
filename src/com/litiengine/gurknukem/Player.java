@@ -12,7 +12,7 @@ import de.gurkenlabs.litiengine.annotation.EntityInfo;
 import de.gurkenlabs.litiengine.annotation.MovementInfo;
 import de.gurkenlabs.litiengine.entities.Creature;
 import de.gurkenlabs.litiengine.input.PlatformingMovementController;
-import de.gurkenlabs.litiengine.physics.CollisionType;
+import de.gurkenlabs.litiengine.physics.Collision;
 
 @EntityInfo(width = 18, height = 18)
 @MovementInfo(velocity = 70)
@@ -81,6 +81,6 @@ public class Player extends Creature implements IUpdateable {
       return true;
     }
 
-    return Game.physics().collides(groundCheck, CollisionType.STATIC);
+    return Game.physics().collides(groundCheck, Collision.STATIC);
   }
 }
