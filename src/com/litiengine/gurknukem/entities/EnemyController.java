@@ -28,10 +28,10 @@ public class EnemyController implements IBehaviorController {
       return;
     }
 
-    final long timeSinceDirectionChange = Game.loop().getDeltaTime(this.directionChanged);
+    final long timeSinceDirectionChange = Game.time().since(this.directionChanged);
     if (timeSinceDirectionChange > this.nextDirectionChage) {
       direction = this.direction == Direction.LEFT ? Direction.RIGHT : Direction.LEFT;
-      this.directionChanged = Game.loop().getTicks();
+      this.directionChanged = Game.time().now();
       this.nextDirectionChage = MathUtilities.randomInRange(1000, 2000);
     }
 
