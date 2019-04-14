@@ -245,8 +245,8 @@
      <properties>
       <property name="addShadow" type="bool" value="true"/>
       <property name="collision" type="bool" value="true"/>
-      <property name="collisionboxHeightFactor" value="16.0"/>
-      <property name="collisionboxWidthFactor" type="float" value="6.4"/>
+      <property name="collisionboxHeight" value="16.0"/>
+      <property name="collisionboxWidth" type="float" value="6.4"/>
       <property name="indestructible" type="bool" value="false"/>
       <property name="spawnDirection" value="LEFT"/>
       <property name="spritesheetName" value="Jorge"/>
