@@ -9,7 +9,7 @@
     <property name="MAP_TITLE" value="Carnage Canyon"/>
     <property name="SHADOWCOLOR" value="#14ffffff"/>
    </properties>
-   <tileset firstgid="1" source="tileset.tsx"/>
+   <tileset firstgid="1" source="#tileset"/>
    <layer id="1" name="background" width="50" height="50">
     <properties>
      <property name="layerOrder" type="int" value="0"/>
@@ -327,13 +327,13 @@
   <sprite width="15" height="16" name="prop-flag">
    <image>iVBORw0KGgoAAAANSUhEUgAAAB4AAAAQCAYAAAABOs/SAAAAjUlEQVR42u1UQQ6AMAjj6BM8+v/X+ASf4U2jiQlh0AJeR7KDWUvpNivLul1C6sFEq43/PhD4OPdh6UYZvOYN0yFCJMy43t4rrqdmZI2xjpGYHc4V9kRQM8tlotBxJJpxHB192zF7XBlO+Y6zwhVu6VV3fzmLGxxHjaKwYBmAwkUy6YMSTbr1hzyFpzCqG6GhpoNg40hZAAAAAElFTkSuQmCC</image>
   </sprite>
-  <sprite width="8" height="8" name="tileset">
+  <sprite width="8" height="8" name="tilesetImage">
    <image>iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAABuElEQVR42u3aQU6EMBQAUJYewaWH8CyewaXH8FgewSN4DHeaTjIGG1ogtBToe0kjtcaZ4X8+n2aGYQcPj08/qXk4rjkG2gpB+Pr+/AvG1Pz59eU2csf3Ea/l1iXAyRIgDuqS3+XWJcDCANUe7x9v/wIez3NBlQA7JMDSAKwdcQKk5jVfP9eLxBdBfNxdAqSO59ZS6/efIeDjvx3P90jAqQCP56nmVAUoFICppEg1dDUrAI16gLkhARoK5Tg31pbZeISOPzdyt5qtcwlwwgRQATpNgBqVIE6A+LVrnM/cZ5UAjSrA3HsoEbQa/7PrHmCuMixZL5EASwMoAQ7eA6QCsUci6AEO0gOUKuGnCKwKUO4p4JKBP+pO5FX3AVK3HQlw8X2ALm4jJRKgdQ/QIgnU/0YVoEUgBH9lD1ByH2BNl7/lqhbNg1aAEs/63T4mXqEH2GvHTzQ3JEHtr4S7au0DcOSrv9bX0ZzhDiuBwHf8RCD4F3sqWLMPIPgdVwLB77gnEPzO9wecKQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIOcXpZhu+/PiOmEAAAAASUVORK5CYII=</image>
   </sprite>
  </spriteSheets>
  <tilesets>
   <tileset firstgid="0" name="tileset" tilewidth="8" tileheight="8" tilecount="256" columns="16">
-   <image source="tileset.png" width="128" height="128"/>
+   <image source="#tilesetImage" width="128" height="128"/>
    <tile id="7">
     <animation>
      <frame tileid="7" duration="300"/>
