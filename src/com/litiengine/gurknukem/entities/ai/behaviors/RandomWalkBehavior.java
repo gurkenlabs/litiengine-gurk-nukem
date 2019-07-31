@@ -1,4 +1,4 @@
-package com.litiengine.gurknukem.entities.ai;
+package com.litiengine.gurknukem.entities.ai.behaviors;
 
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.Creature;
@@ -30,12 +30,12 @@ public class RandomWalkBehavior<C extends Creature> extends Behavior<C>
 	{
 		if (Game.time().since(lastDirectionChange) > scheduledDirectionChange)
 		{	
-			this.creature.setFacingDirection(this.creature.getFacingDirection().getOpposite());
+			this.entity.setFacingDirection(this.entity.getFacingDirection().getOpposite());
 			this.lastDirectionChange = Game.time().now();
 			this.scheduledDirectionChange = (long) MathUtilities.randomInRange(this.minTimeBeforeDirectionChange, this.maxTimeBeforeDirectionChange);
 		}
 		
-		Game.physics().move(this.creature, this.creature.getTickVelocity());
+		Game.physics().move(this.entity, this.entity.getTickVelocity());
 	}
 
 	@Override public boolean checkConditions() { return true; }

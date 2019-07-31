@@ -1,7 +1,7 @@
 package com.litiengine.gurknukem.entities;
 
 import com.litiengine.gurknukem.Player;
-import com.litiengine.gurknukem.entities.ai.FollowEntityBehavior;
+import com.litiengine.gurknukem.entities.ai.behaviors.FollowEntityBehavior;
 
 import de.gurkenlabs.litiengine.annotation.AnimationInfo;
 import de.gurkenlabs.litiengine.annotation.EntityInfo;

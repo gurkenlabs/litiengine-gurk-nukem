@@ -4,23 +4,24 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import de.gurkenlabs.litiengine.entities.Creature;
+import com.litiengine.gurknukem.entities.ai.behaviors.Behavior;
+
+import de.gurkenlabs.litiengine.entities.IEntity;
 import de.gurkenlabs.litiengine.entities.ai.IBehaviorController;
 
-public abstract class CreatureAIController<C extends Creature> implements IBehaviorController
+public abstract class EntityAI<E extends IEntity> implements IBehaviorController
 {
-	protected C creature;
+	protected E entity;
 	
-	public CreatureAIController(C creature)
+	public EntityAI(E entity)
 	{
-		this.creature = creature;
+		this.entity = entity;
 	}
 	
 	/**
 	 * I assume that if you use the LITIengine you already know when this method is called ^^<br />
 	 * Here its the actual functionment:
 	 * <ol>
-	 * 	<li>If the creature is dead, return</li>
 	 * 	<li>Store all {@linkplain Behavior}s returned by {@linkplain #getBehaviors()}</li>
 	 * 	<li>Select and store a sole Behavior from all <i>applicables</i> Behaviors</li>
 	 * 	<li>Call the {@linkplain Behavior#apply()} method of the stored instance</li>
@@ -31,10 +32,9 @@ public abstract class CreatureAIController<C extends Creature> implements IBehav
 	@Override
 	public void update()
 	{
-		if (this.creature.isDead()) return;
-		Collection<Behavior<? extends C>> behaviors = this.getBehaviors();
+		Collection<Behavior<? extends E>> behaviors = this.getBehaviors();
 		
-		Behavior<? extends C> behavior = this.select(behaviors.stream().filter(Behavior::isApplicable).collect(Collectors.toList()));
+		Behavior<? extends E> behavior = this.select(behaviors.stream().filter(Behavior::isApplicable).collect(Collectors.toList()));
 		if (behavior != null) behavior.apply();
 		
 		behaviors.stream().filter(b -> b != behavior).forEach(Behavior::ifNotSelected);
@@ -51,19 +51,19 @@ public abstract class CreatureAIController<C extends Creature> implements IBehav
 	}
 	
 	/**
-	 * @return All availables {@linkplain Behavior} for this {@linkplain CreatureAIController}
+	 * @return All availables {@linkplain Behavior} for this {@linkplain EntityAI}
 	 */
-	public abstract Collection<Behavior<? extends C>> getBehaviors();
+	public abstract Collection<Behavior<? extends E>> getBehaviors();
 	
 	/**
 	 * Select a {@linkplain Behavior} from the provided list.
 	 * This method intends to create a priority between behaviors.
 	 * @return the selected Behavior
 	 */
-	public abstract Behavior<? extends C> select(List<Behavior<? extends C>> applicable);
+	public abstract Behavior<? extends E> select(List<Behavior<? extends E>> applicable);
 
 	/**
-	 * Return the stored creature
+	 * Return the stored entity
 	 */
-	@Override public C getEntity() { return creature; }
+	@Override public E getEntity() { return entity; }
 }

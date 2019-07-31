@@ -1,4 +1,4 @@
-package com.litiengine.gurknukem.entities.ai;
+package com.litiengine.gurknukem.entities.ai.behaviors;
 
 import de.gurkenlabs.litiengine.Direction;
 import de.gurkenlabs.litiengine.Game;
@@ -27,17 +27,18 @@ public class FollowEntityBehavior<C extends Creature> extends Behavior<C>
 	@Override
 	public void apply()
 	{
-		this.creature.setFacingDirection(getDirectionTo(this.creature, this.followedEntity.getLocation().getX()));
-		Game.physics().move(this.creature, this.creature.getTickVelocity());
+		this.entity.setFacingDirection(getDirectionTo(this.entity, this.followedEntity.getLocation().getX()));
+		Game.physics().move(this.entity, this.entity.getTickVelocity());
 	}
 
 	@Override
 	protected boolean checkConditions()
 	{
 		return this.isFollowing = this.followedEntity != null
-				&& this.creature.getLocation().distance(this.followedEntity.getLocation()) <= this.followRange
+				&& this.entity.getLocation().distance(this.followedEntity.getLocation()) <= this.followRange
+				&& Math.abs(this.entity.getY() - this.followedEntity.getY()) < this.followRange / 2d
 				&& (this.isFollowing
-						|| getDirectionTo(this.creature, this.followedEntity.getLocation().getX()) == this.creature.getFacingDirection());
+						|| getDirectionTo(this.entity, this.followedEntity.getLocation().getX()) == this.entity.getFacingDirection());
 	}
 	
 	@Override public void ifNotSelected() { this.isFollowing = false; }

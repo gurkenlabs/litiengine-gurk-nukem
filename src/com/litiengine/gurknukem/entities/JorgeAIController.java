@@ -1,19 +1,19 @@
 package com.litiengine.gurknukem.entities;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
-import com.litiengine.gurknukem.entities.ai.AvoidFallBehavior;
-import com.litiengine.gurknukem.entities.ai.Behavior;
-import com.litiengine.gurknukem.entities.ai.CreatureAIController;
-import com.litiengine.gurknukem.entities.ai.FollowEntityBehavior;
-import com.litiengine.gurknukem.entities.ai.RandomWalkBehavior;
+import com.litiengine.gurknukem.entities.ai.LivingEntityAI;
+import com.litiengine.gurknukem.entities.ai.behaviors.AvoidFallBehavior;
+import com.litiengine.gurknukem.entities.ai.behaviors.Behavior;
+import com.litiengine.gurknukem.entities.ai.behaviors.FollowEntityBehavior;
+import com.litiengine.gurknukem.entities.ai.behaviors.RandomWalkBehavior;
 
 /**
  * An AI Controller made especially for the Jorge
  */
-public class JorgeAIController extends CreatureAIController<Jorge>
+public class JorgeAIController extends LivingEntityAI<Jorge>
 {
 	private final RandomWalkBehavior<Jorge> randomWalk;
 	private final FollowEntityBehavior<Jorge> followEntity;
@@ -27,15 +27,14 @@ public class JorgeAIController extends CreatureAIController<Jorge>
 		this.avoidFall = new AvoidFallBehavior<>(j);
 	}
 	
-	@Override public Collection<Behavior<? extends Jorge>> getBehaviors() { return Arrays.asList(randomWalk, followEntity, avoidFall); }
+	@Override public List<Behavior<? extends Jorge>> getBehaviorList() { return Arrays.asList(randomWalk, followEntity, avoidFall); }
 
 	@Override
-	public Behavior<? extends Jorge> select(List<Behavior<? extends Jorge>> applicable)
+	public Behavior<? extends Jorge> select(ArrayList<Behavior<? extends Jorge>> applicable)
 	{
-		Behavior<Jorge> behavior = null;
-		if (applicable.contains(randomWalk)) behavior = randomWalk;
-		if (applicable.contains(followEntity)) behavior = followEntity;
-		if (applicable.contains(avoidFall)) behavior = avoidFall;
-		return behavior;
+		if (applicable.contains(avoidFall)) return avoidFall;
+		if (applicable.contains(followEntity)) return followEntity;
+		if (applicable.contains(randomWalk)) return randomWalk;
+		return null;
 	}
 }

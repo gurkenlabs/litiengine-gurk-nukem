@@ -1,4 +1,4 @@
-package com.litiengine.gurknukem.entities.ai;
+package com.litiengine.gurknukem.entities.ai.behaviors;
 
 import java.awt.geom.Rectangle2D;
 
@@ -9,7 +9,7 @@ import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.Creature;
 
 /**
- * A behavior that makes the {@linkplain Creature} avoid falling when going on a cliff
+ * A behavior that makes its {@linkplain Creature} avoid falling upon coming across a cliff
  * @param <C> same as in {@linkplain Behavior}
  */
 public class AvoidFallBehavior<C extends Creature> extends Behavior<C>
@@ -19,15 +19,15 @@ public class AvoidFallBehavior<C extends Creature> extends Behavior<C>
 	@Override
 	public void apply()
 	{
-		this.creature.setFacingDirection(this.creature.getFacingDirection().getOpposite());
-		Game.physics().move(this.creature, this.creature.getTickVelocity());
+		this.entity.setFacingDirection(this.entity.getFacingDirection().getOpposite());
+		Game.physics().move(this.entity, this.entity.getTickVelocity());
 	}
 
 	@Override
 	protected boolean checkConditions()
 	{
-		int m = this.creature.getFacingDirection() == Direction.LEFT ? -1 : 1;
-		Rectangle2D box = this.creature.getCollisionBox();
+		int m = this.entity.getFacingDirection() == Direction.LEFT ? -1 : 1;
+		Rectangle2D box = this.entity.getCollisionBox();
 		Rectangle2D preview = new Rectangle2D.Double(box.getX() + m*box.getWidth(), box.getY(), box.getWidth(), box.getHeight());
 		return !Util.isTouchingGround(preview);
 	}
