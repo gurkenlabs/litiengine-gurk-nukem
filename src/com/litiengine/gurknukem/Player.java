@@ -14,7 +14,7 @@ import de.gurkenlabs.litiengine.entities.Creature;
 import de.gurkenlabs.litiengine.input.PlatformingMovementController;
 import de.gurkenlabs.litiengine.physics.Collision;
 
-@EntityInfo(width = 18, height = 18)
+@EntityInfo(width = 16, height = 18)
 @MovementInfo(velocity = 70)
 @CollisionInfo(collisionBoxWidth = 8, collisionBoxHeight = 16, collision = true)
 public class Player extends Creature implements IUpdateable {
