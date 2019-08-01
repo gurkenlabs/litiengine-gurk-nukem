@@ -1,6 +1,6 @@
 package com.litiengine.gurknukem.entities.ai;
 
-import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -9,13 +9,15 @@ import com.litiengine.gurknukem.entities.ai.behaviors.Behavior;
 import de.gurkenlabs.litiengine.entities.IEntity;
 import de.gurkenlabs.litiengine.entities.ai.IBehaviorController;
 
-public abstract class EntityAI<E extends IEntity> implements IBehaviorController
+public class EntityAI<E extends IEntity> implements IBehaviorController
 {
-	protected E entity;
+	protected final E entity;
+	protected final List<Behavior<? extends E>> behaviors;
 	
-	public EntityAI(E entity)
+	public EntityAI(E entity, List<Behavior<? extends E>> behaviors)
 	{
 		this.entity = entity;
+		this.behaviors = behaviors;
 	}
 	
 	/**
@@ -31,10 +33,8 @@ public abstract class EntityAI<E extends IEntity> implements IBehaviorController
 	 */
 	@Override
 	public void update()
-	{
-		Collection<Behavior<? extends E>> behaviors = this.getBehaviors();
-		
-		Behavior<? extends E> behavior = this.select(behaviors.stream().filter(Behavior::isApplicable).collect(Collectors.toList()));
+	{	
+		Behavior<? extends E> behavior = this.select(this.behaviors.stream().filter(Behavior::isApplicable).collect(Collectors.toList()));
 		if (behavior != null) behavior.apply();
 		
 		behaviors.stream().filter(b -> b != behavior).forEach(Behavior::ifNotSelected);
@@ -47,20 +47,24 @@ public abstract class EntityAI<E extends IEntity> implements IBehaviorController
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public <T extends Behavior> T getBehavior(Class<T> clazz)
 	{
-		return (T) this.getBehaviors().stream().filter(clazz::isInstance).findFirst().orElse(null);
+		return (T) this.behaviors.stream().filter(clazz::isInstance).findFirst().orElse(null);
 	}
 	
 	/**
 	 * @return All availables {@linkplain Behavior} for this {@linkplain EntityAI}
 	 */
-	public abstract Collection<Behavior<? extends E>> getBehaviors();
+	public List<Behavior<? extends E>> getBehaviors() { return Collections.unmodifiableList(this.behaviors); }
 	
 	/**
 	 * Select a {@linkplain Behavior} from the provided list.
-	 * This method intends to create a priority between behaviors.
+	 * The default {@linkplain EntityAI} implementation prioritize behaviors from given list order
 	 * @return the selected Behavior
 	 */
-	public abstract Behavior<? extends E> select(List<Behavior<? extends E>> applicable);
+	public Behavior<? extends E> select(List<Behavior<? extends E>> applicable)
+	{
+		for (Behavior<? extends E> behavior : this.behaviors) if (applicable.contains(behavior)) return behavior;
+		return null;
+	}
 
 	/**
 	 * Return the stored entity
