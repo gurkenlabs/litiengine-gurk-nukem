@@ -28,7 +28,7 @@ public class Jump extends Ability {
   private class JumpEffect extends ForceEffect {
 
     protected JumpEffect(Ability ability) {
-      super(ability, ability.getAttributes().getValue().getCurrentValue().intValue(), EffectTarget.EXECUTINGENTITY);
+      super(ability, ability.getAttributes().value().get().intValue(), EffectTarget.EXECUTINGENTITY);
     }
 
     @Override
