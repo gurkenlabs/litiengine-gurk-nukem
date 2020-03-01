@@ -5,7 +5,6 @@ import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.Creature;
 import de.gurkenlabs.litiengine.entities.IEntity;
 import de.gurkenlabs.litiengine.entities.ai.IBehaviorController;
-import de.gurkenlabs.litiengine.util.MathUtilities;
 
 public class EnemyController implements IBehaviorController {
   private final Creature enemy;
@@ -32,7 +31,7 @@ public class EnemyController implements IBehaviorController {
     if (timeSinceDirectionChange > this.nextDirectionChage) {
       direction = this.direction == Direction.LEFT ? Direction.RIGHT : Direction.LEFT;
       this.directionChanged = Game.time().now();
-      this.nextDirectionChage = MathUtilities.randomInRange(1000, 2000);
+      this.nextDirectionChage = Game.random().nextLong(1000, 2000);
     }
 
     this.getEntity().setAngle(this.direction.toAngle());
