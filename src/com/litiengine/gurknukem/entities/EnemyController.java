@@ -4,7 +4,7 @@ import de.gurkenlabs.litiengine.Direction;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.Creature;
 import de.gurkenlabs.litiengine.entities.IEntity;
-import de.gurkenlabs.litiengine.entities.ai.IBehaviorController;
+import de.gurkenlabs.litiengine.entities.behavior.IBehaviorController;
 
 public class EnemyController implements IBehaviorController {
   private final Creature enemy;
