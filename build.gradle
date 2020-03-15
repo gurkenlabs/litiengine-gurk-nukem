@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-  compile project(':litiengine')
+  implementation project(':litiengine')
 }
 
 sourceSets {
