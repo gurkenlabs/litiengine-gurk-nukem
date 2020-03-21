@@ -13,6 +13,7 @@ import de.gurkenlabs.litiengine.entities.EntityInfo;
 import de.gurkenlabs.litiengine.entities.MovementInfo;
 import de.gurkenlabs.litiengine.input.PlatformingMovementController;
 import de.gurkenlabs.litiengine.physics.Collision;
+import de.gurkenlabs.litiengine.physics.IMovementController;
 
 @EntityInfo(width = 18, height = 18)
 @MovementInfo(velocity = 70)
@@ -28,9 +29,6 @@ public class Player extends Creature implements IUpdateable {
 
   private Player() {
     super("gurknukem");
-
-    // setup movement controller
-    this.addController(new PlatformingMovementController<>(this));
 
     // setup the player's abilities
     this.jump = new Jump(this);
@@ -50,6 +48,12 @@ public class Player extends Creature implements IUpdateable {
     if (this.isTouchingGround()) {
       this.consecutiveJumps = 0;
     }
+  }
+
+  @Override
+  protected IMovementController createMovementController() {
+    // setup movement controller
+    return new PlatformingMovementController<>(this);
   }
 
   /**

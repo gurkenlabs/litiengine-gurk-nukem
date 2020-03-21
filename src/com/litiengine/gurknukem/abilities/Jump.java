@@ -6,17 +6,17 @@ import de.gurkenlabs.litiengine.Direction;
 import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.abilities.Ability;
 import de.gurkenlabs.litiengine.abilities.AbilityInfo;
-import de.gurkenlabs.litiengine.abilities.AbilityOrigin;
 import de.gurkenlabs.litiengine.abilities.effects.EffectApplication;
 import de.gurkenlabs.litiengine.abilities.effects.EffectTarget;
 import de.gurkenlabs.litiengine.abilities.effects.ForceEffect;
 import de.gurkenlabs.litiengine.entities.CollisionBox;
 import de.gurkenlabs.litiengine.entities.Creature;
+import de.gurkenlabs.litiengine.entities.EntityPivotType;
 import de.gurkenlabs.litiengine.entities.IMobileEntity;
 import de.gurkenlabs.litiengine.physics.Force;
 import de.gurkenlabs.litiengine.physics.GravityForce;
 
-@AbilityInfo(cooldown = 500, origin = AbilityOrigin.COLLISIONBOX_CENTER, duration = 300, value = 240)
+@AbilityInfo(cooldown = 500, origin = EntityPivotType.COLLISIONBOX_CENTER, duration = 300, value = 240)
 public class Jump extends Ability {
 
   public Jump(Creature executor) {
