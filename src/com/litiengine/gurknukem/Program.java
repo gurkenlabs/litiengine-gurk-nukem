@@ -1,8 +1,10 @@
 package com.litiengine.gurknukem;
 
+import com.litiengine.gurknukem.misc.MapGeneration;
 import com.litiengine.gurknukem.screens.IngameScreen;
 
 import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.environment.tilemap.IMap;
 import de.gurkenlabs.litiengine.resources.Resources;
 
 /**
@@ -29,7 +31,7 @@ public class Program {
 
     // set the icon for the game (this has to be done after initialization because the ScreenManager will not be present otherwise)
     Game.window().setIcon(Resources.images().get("icon.png"));
-    Game.graphics().setBaseRenderScale(4.001f); 
+    Game.graphics().setBaseRenderScale(4.001f);
 
     // load data from the utiLITI game file
     Resources.load("game.litidata");
@@ -42,6 +44,10 @@ public class Program {
 
     // load the first level (resources for the map were implicitly loaded from the game file)
     Game.world().loadEnvironment("level1");
+
+    // load a demo map for map generation
+    IMap map = MapGeneration.generateRandomizedMap();
+    // Game.world().loadEnvironment(map);
 
     Game.start();
   }
