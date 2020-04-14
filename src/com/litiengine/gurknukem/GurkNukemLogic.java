@@ -27,7 +27,7 @@ public final class GurkNukemLogic {
     Game.world().setGravity(120);
 
     // add default game logic for when a level was loaded
-    Game.world().addLoadedListener(e -> {
+    Game.world().onLoaded(e -> {
 
       // spawn the player instance on the spawn point with the name "enter"
       Spawnpoint enter = e.getSpawnpoint("enter");
