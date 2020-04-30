@@ -1,7 +1,7 @@
 
 ![Gurk Nukem icon](https://github.com/gurkenlabs/litiengine-gurk-nukem/blob/master/sprites/icon.png)
 # Gurk Nukem
-*A 2-bit retro platformer made with LITIENGINE*
+*A 2-bit platforming shooter made with LITIENGINE*
 ## What is this?
 This game is an example project made to teach you how LITIENGINE works. The development of Gurk Nukem is accompanied by an extensive tutorial on how to create your own platformer with LITIENGINE.
 The tutorial series is separated into parts that roughly resemble a day's work.
