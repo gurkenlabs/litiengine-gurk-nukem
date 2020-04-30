@@ -12,7 +12,7 @@ So far, we have the following parts of the tutorial ready for you:
 ## How can I contribute?
 We have open-sourced the project so anyone can not only use the code for their one projects, but also contribute to the development of this game. 
 
-We organize the features to be implemented in GitHub issues, and there will be a documentation chapter for each of these features. For an overview over the intended chapters, see the [project overview for tutorial chapters](https://github.com/gurkenlabs/litiengine-gurk-nukem/projects/1). Each issue is one sub-section in one part of the tutorial, with the top-most issue being the first chapter.
+We organize the features to be implemented in GitHub issues, and there will be a documentation chapter for each of these features. For an overview over the intended chapters, see the [project overview for tutorial chapters](https://github.com/gurkenlabs/litiengine-gurk-nukem/projects/1). Each issue is one sub-section in one part of the tutorial, with the top-most issue being the first chapter. It would therefore make sense to work on chapters chronologically, as later sections may refer to previous ones.
 
 If you want to get started with one particular feature, this will require the following steps from you:
 * **Implementation**: Bring your idea to life by implementing the feature in the game
