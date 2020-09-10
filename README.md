@@ -5,9 +5,8 @@
 ## What is this?
 This game is an example project made to teach you how LITIENGINE works. The development of Gurk Nukem is accompanied by an extensive tutorial on how to create your own platformer with LITIENGINE.
 The tutorial series is separated into parts that roughly resemble a day's work.
-So far, we have the following parts of the tutorial ready for you:
-* [DAY 1: The first Level](https://litiengine.com/creating-a-platformer-1/)
-* [DAY 2: Time to put on your hacker gloves!](https://litiengine.com/creating-a-platformer-2/)
+* [Chapter 1: The first Level](https://litiengine.com/docs/tutorials/creating-a-platformer/#chapter-1-the-first-level)
+* [Chapter 2: Time to put on your hacker gloves](https://litiengine.com/docs/tutorials/creating-a-platformer/#chapter-2-time-to-pull-out-your-hacker-gloves)
 
 ## How can I contribute?
 We have open-sourced the project so anyone can not only use the code for their own projects, but also contribute to the development of this game. 
