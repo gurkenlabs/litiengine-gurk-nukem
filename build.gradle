@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-  implementation project(':litiengine')
+  implementation 'de.gurkenlabs:litiengine:0.5.0'
 }
 
 sourceSets {
