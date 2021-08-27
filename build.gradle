@@ -9,16 +9,16 @@ targetCompatibility = "1.8.0"
 mainClassName = "com.litiengine.gurknukem.Program"
 
 repositories {
-  mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-  implementation 'de.gurkenlabs:litiengine:0.5.1'
+    implementation 'de.gurkenlabs:litiengine:0.5.1'
 }
 
 sourceSets {
-  main.java.srcDir "src"
-  main.resources.srcDirs = ["sprites", "audio", "maps", "misc"]
+    main.java.srcDir "src"
+    main.resources.srcDirs = ["sprites", "audio", "maps", "misc"]
 
-  // main.resources.includes = ["game.litidata"]
+    // main.resources.includes = ["game.litidata"]
 }
