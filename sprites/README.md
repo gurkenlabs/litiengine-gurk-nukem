@@ -1,1 +1,0 @@
-# This source folder container all sprites for the game
