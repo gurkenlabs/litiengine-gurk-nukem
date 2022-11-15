@@ -1,21 +1,24 @@
-// java plugin is required for e.g. compilation, the application plugin is used to execute the game via gradle
-apply plugin: 'java'
-apply plugin: 'application'
-
-// give your project a name
-archivesBaseName = "GURK NUKEM"
-version = "v0.0.1"
-targetCompatibility = "1.8.0"
-mainClassName = "com.litiengine.gurknukem.Program"
+plugins {
+    id("java")
+    id("application")
+}
 
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    implementation 'de.gurkenlabs:litiengine:0.5.1'
-}
+// give your project a name
+archivesBaseName = "GURK NUKEM"
+version = "v0.0.1"
+mainClassName = "com.litiengine.gurknukem.Program"
 
+
+dependencies {
+    implementation 'de.gurkenlabs:litiengine:0.5.2'
+}
+tasks.withType(Copy).all {
+    duplicatesStrategy 'exclude'
+}
 sourceSets {
     main.java.srcDir "src"
     main.resources.srcDirs = ["sprites", "audio", "maps", "misc"]
