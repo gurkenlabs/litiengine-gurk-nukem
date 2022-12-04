@@ -6,7 +6,7 @@ import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.entities.Spawnpoint;
 import de.gurkenlabs.litiengine.environment.CreatureMapObjectLoader;
 import de.gurkenlabs.litiengine.graphics.Camera;
-import de.gurkenlabs.litiengine.graphics.PositionLockCamera;
+import de.gurkenlabs.litiengine.graphics.LocationLockCamera;
 
 public final class GurkNukemLogic {
 
@@ -19,7 +19,7 @@ public final class GurkNukemLogic {
   public static void init() {
     
     // we'll use a camera in our game that is locked to the location of the player
-    Camera camera = new PositionLockCamera(Player.instance());
+    Camera camera = new LocationLockCamera(Player.instance());
     camera.setClampToMap(true);
     Game.world().setCamera(camera);
     

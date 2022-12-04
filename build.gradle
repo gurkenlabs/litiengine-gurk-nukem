@@ -1,6 +1,7 @@
 plugins {
     id("java")
     id("application")
+    id("com.diffplug.spotless") version "6.11.0"
 }
 
 repositories {
@@ -14,7 +15,7 @@ mainClassName = "com.litiengine.gurknukem.Program"
 
 
 dependencies {
-    implementation 'de.gurkenlabs:litiengine:0.5.2'
+    implementation 'de.gurkenlabs:litiengine'
 }
 tasks.withType(Copy).all {
     duplicatesStrategy 'exclude'
