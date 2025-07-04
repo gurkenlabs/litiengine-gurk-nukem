@@ -1,11 +1,13 @@
 plugins {
     id("java")
     id("application")
-    id("com.diffplug.spotless") version "6.17.0"
+    id("com.diffplug.spotless") version "7.0.4"
 }
 
-repositories {
-    mavenCentral()
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(24))
+    }
 }
 
 // give your project a name
@@ -17,9 +19,11 @@ mainClassName = "com.litiengine.gurknukem.Program"
 dependencies {
     implementation 'de.gurkenlabs:litiengine'
 }
+
 tasks.withType(Copy).all {
     duplicatesStrategy 'exclude'
 }
+
 sourceSets {
     main.java.srcDir "src"
     main.resources.srcDirs = ["sprites", "audio", "maps", "misc"]

@@ -1,4 +1,17 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
 rootProject.name = 'GurkNukem'
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+}
 
 includeBuild ("../litiengine"){
     dependencySubstitution {

@@ -59,7 +59,7 @@ public class Player extends Creature implements IUpdateable {
   /**
    * Checks whether this instance can currently jump and then performs the <code>Jump</code> ability.
    * <p>
-   * <i>Note that the name of this methods needs to be equal to {@link PlatformingMovementController#JUMP}} in order for the controller to be able to
+   * <i>Note that the name of this methods needs to be equal to {@link PlatformingMovementController#JUMP_ACTION}} in order for the controller to be able to
    * use this method. <br>
    * Another option is to explicitly specify the <code>Action.name()</code> attribute on the annotation.</i>
    * </p>
@@ -78,7 +78,7 @@ public class Player extends Creature implements IUpdateable {
     // the idea of this ground check is to extend the current collision box by
     // one pixel and see if
     // a) it collides with any static collision box
-    Rectangle2D groundCheck = new Rectangle2D.Double(this.getCollisionBox().getX(), this.getCollisionBox().getY(), this.getCollisionBoxWidth(), this.getCollisionBoxHeight() + 1);
+    Rectangle2D groundCheck = new Rectangle2D.Double(getCollisionBox().getX(), getCollisionBox().getY(), getCollisionBoxWidth(), getCollisionBoxHeight() + 1);
 
     // b) it collides with the map's boundaries
     if (groundCheck.getMaxY() > Game.physics().getBounds().getMaxY()) {

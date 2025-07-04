@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <litidata version="1.0">
  <maps>
-  <map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="8" tileheight="8" infinite="0" nextobjectid="1" nextlayerid="8" name="level1">
+  <map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="8" tileheight="8" infinite="0" parallaxoriginx="0.0" parallaxoriginy="0.0" nextlayerid="8" nextobjectid="1" name="level1">
    <properties>
     <property name="AMBIENTLIGHT" value="#00666666"/>
     <property name="GRAVITY" type="int" value="0"/>
@@ -235,7 +235,7 @@
 4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,4,4,4,4,4,4,4,4,4,4
 </data>
    </layer>
-   <objectgroup id="4" name="Spawnpoints">
+   <objectgroup id="4" name="Spawnpoints" visible="1">
     <object id="1" name="enter" type="SPAWNPOINT" x="8" y="304" width="18" height="18">
      <properties>
       <property name="spawnDirection" value="RIGHT"/>
@@ -250,11 +250,11 @@
       <property name="indestructible" type="bool" value="false"/>
       <property name="spawnDirection" value="LEFT"/>
       <property name="spritesheetName" value="Jorge"/>
-      <property name="velocity" value="10"/>
+      <property name="velocity" type="float" value="10"/>
      </properties>
     </object>
    </objectgroup>
-   <objectgroup id="5" name="Collision">
+   <objectgroup id="5" name="Collision" visible="1">
     <properties>
      <property name="layerOrder" type="int" value="3"/>
     </properties>
@@ -274,7 +274,7 @@
     <object id="15" type="COLLISIONBOX" x="312" y="283" width="24" height="5"/>
     <object id="16" type="COLLISIONBOX" x="248" y="328" width="72" height="72"/>
    </objectgroup>
-   <objectgroup id="7" name="deadlyCollision">
+   <objectgroup id="7" name="deadlyCollision" visible="1">
     <object id="17" type="COLLISIONBOX" x="0" y="392" width="248" height="8">
      <properties>
       <property name="isObstacle" type="bool" value="true"/>
