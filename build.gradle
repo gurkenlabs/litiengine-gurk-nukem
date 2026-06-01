@@ -1,27 +1,29 @@
 plugins {
     id("java")
     id("application")
-    id("com.diffplug.spotless") version "7.0.4"
+    id("com.diffplug.spotless") version "8.6.0"
 }
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(24))
+        languageVersion.set(JavaLanguageVersion.of(25))
     }
 }
 
-// give your project a name
-archivesBaseName = "GURK NUKEM"
 version = "v0.0.1"
-mainClassName = "com.litiengine.gurknukem.Program"
+
+application {
+    applicationName = "GURK NUKEM"
+    mainClass = "com.litiengine.gurknukem.Program"
+}
 
 
 dependencies {
     implementation 'de.gurkenlabs:litiengine'
 }
 
-tasks.withType(Copy).all {
-    duplicatesStrategy 'exclude'
+tasks.withType(Copy).configureEach {
+    duplicatesStrategy = 'exclude'
 }
 
 sourceSets {
