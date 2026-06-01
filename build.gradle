@@ -23,7 +23,7 @@ dependencies {
 }
 
 tasks.withType(Copy).configureEach {
-    duplicatesStrategy = 'exclude'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 sourceSets {
